@@ -1,0 +1,163 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+		<span id="header_shadow"></span>
+		<!-- /TOP NAV -->
+
+		<!-- WRAPPER -->
+		<div id="wrapper">
+
+			<!-- PAGE TITLE -->
+			<header id="page-title"> <!-- style="background-image:url('assets/images/demo/parallax_bg.jpg')" -->
+				<!--
+					Enable only if bright background image used
+					<span class="overlay"></span>
+				-->
+
+				<div class="container">
+					<h1>FAQ</h1>
+
+					<ul class="breadcrumb">
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="#">Pages</a></li>
+						<li class="active">FAQ</li>
+					</ul>
+				</div>
+			</header>
+
+			<section class="container">
+
+				<h2>Foire Aux Questions</h2>
+
+				<p class="lead">Nous avons regroupé des réponses aux questions que vous pourriez vous poser.</p>
+
+				<div class="divider"><!-- divider -->
+					<i class="fa fa-star"></i>
+				</div>
+
+				<div class="toogle toogle-accordion">
+
+				{% for q in questions %}
+					<div class="toggle">
+						<label>{{ q.question }}</label>
+						<div class="toggle-content">
+							{{ q.answer|safe }}
+						</div>
+					</div>
+				{% endfor %}
+
+					<div class="toggle">
+						<label>Quels sont vos modes de paiement?</label>
+						<div class="toggle-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<ul class="list-icon check StyleSecondColor">
+								<li>Nullam id dolor id</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+								<li>Maecenas sed diam eget</li>
+								<li>Curabitur pellentesque neque eget diam posuere porta.</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<label>Proposez-vous des listes de mariage?</label>
+						<div class="toggle-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<ul class="list-icon check StyleSecondColor">
+								<li>Nullam id dolor id</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+								<li>Maecenas sed diam eget</li>
+								<li>Curabitur pellentesque neque eget diam posuere porta.</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<label>Offrez-vous des services de décoration intérieur?</label>
+						<div class="toggle-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<ul class="list-icon check StyleSecondColor">
+								<li>Nullam id dolor id</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+								<li>Maecenas sed diam eget</li>
+								<li>Curabitur pellentesque neque eget diam posuere porta.</li>
+							</ul>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<label>Quisque ut nulla at nunc vehicula lacinia?</label>
+						<div class="toggle-content">
+							<ul class="list-icon check StyleSecondColor">
+								<li>Nullam id dolor id</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+								<li>Maecenas sed diam eget</li>
+							</ul>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<label>Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet?</label>
+						<div class="toggle-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<ul class="list-icon check StyleSecondColor">
+								<li>Nullam id dolor id</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+								<li>Maecenas sed diam eget</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<label>Proin adipiscing porta tellus?</label>
+						<div class="toggle-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<label>Feugiat nibh adipiscing sit amet?</label>
+						<div class="toggle-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
+							<ul class="list-icon check StyleSecondColor">
+								<li>Nullam id dolor id</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+								<li>Maecenas sed diam eget</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- CALLOUT -->
+				<div class="bs-callout text-center nomargin-bottom">
+					<h3>
+						<strong>Pas de réponse à votre question?</strong>
+					</h3>
+                    <h3>
+						Appelez-nous au 05 90 38 93 05.
+					</h3>
+
+					<div class="divider"><!-- divider -->
+						<i class="fa fa-chevron-down"></i>
+					</div>
+
+					<h3>
+						<a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Nous joindre</a>
+					</h3>
+				</div>
+				<!-- /CALLOUT -->
+
+			</section>
+
+		</div>
+		<!-- /WRAPPER -->
+
+{% endblock content %}

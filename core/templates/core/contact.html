@@ -1,0 +1,132 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+		<span id="header_shadow"></span>
+		<!-- /TOP NAV -->
+
+		<!-- WRAPPER -->
+		<div id="wrapper">
+
+			<!-- PAGE TITLE -->
+			<header id="page-title" class="nopadding">
+				<div id="gmap"><!-- google map --></div>
+				<script type="text/javascript">
+					var	$googlemap_latitude 	= 16.24017055,
+						$googlemap_longitude	= -61.56161819,
+						$googlemap_zoom			= 13;
+				</script>
+			</header>
+
+			<section id="contact" class="container">
+
+
+				<div class="row">
+
+					<!-- FORM -->
+					<div class="col-md-8">
+
+						<h2>Formulaire contact</h2>
+
+						<!-- 
+							if you want to use your own contact script, remove .hide class
+						-->
+
+						<!-- SENT OK -->
+						<div id="_sent_ok_" class="alert alert-success fade in fsize16 hide">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<strong>Merci!</strong> Votre message a été envoyé!
+						</div>
+						<!-- /SENT OK -->
+
+						<!-- SENT FAILED -->
+						<div id="_sent_required_" class="alert alert-danger fade in fsize16 hide">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<strong>Attention!</strong> Merci de saisir tous les champs requis (*) !
+						</div>
+						<!-- /SENT FAILED -->
+
+						<form id="contactForm" class="white-row" action="php/contact.php" method="post">
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-4">
+										<label>Nom complet *</label>
+										<input type="text" value="" data-msg-required="Merci de saisir votre nom." maxlength="100" class="form-control" name="contact_name" id="contact_name">
+									</div>
+									<div class="col-md-4">
+										<label>Adresse email *</label>
+										<input type="email" value="" data-msg-required="Merci de saisir votre adresse email." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="contact_email" id="contact_email">
+									</div>
+									<div class="col-md-4">
+										<label>Téléphone</label>
+										<input type="text" value="" data-msg-required="Merci de saisir votre numéro de téléphone." data-msg-email="Please enter your phone" maxlength="100" class="form-control" name="contact_phone" id="contact_phone">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-12">
+										<label>Objet</label>
+										<input type="text" value="" data-msg-required="Merci de saisir l'objet du message." maxlength="100" class="form-control" name="contact_subject" id="contact_subject">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-12">
+										<label>Message *</label>
+										<textarea maxlength="5000" data-msg-required="Merci de rédiger le contenu de votre message." rows="10" class="form-control" name="contact_message" id="contact_message"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+
+									<span class="pull-right"><!-- captcha -->
+										<label class="block text-right fsize12">Code anti-pourriel</label>
+										<img alt="" rel="nofollow,noindex" width="50" height="18" src="php/captcha.php?bgcolor=ffffff&amp;txtcolor=000000">
+										<input type="text" name="contact_captcha" id="contact_captcha" value="" data-msg-required="Merci de saisir l'objet du message." maxlength="6" style="width:100px; margin-left:10px;">
+									</span>
+
+									<input id="contact_submit" type="submit" value="Envoyer" class="btn btn-primary btn-lg" data-loading-text="En cours...">
+								</div>
+							</div>
+						</form>
+					
+					</div>
+					<!-- /FORM -->
+
+
+					<!-- INFO -->
+					<div class="col-md-4">
+
+						<h2>Nous joindre</h2>
+                        
+                        <h4 class="font300">Coordonnées</h4>
+						<p>
+							<span class="block"><strong><i class="fa fa-map-marker"></i> Adresse:</strong> Boul. Marquisat de Houelbourg, Z.I. Jarry, 97122 Baie-Mahault, Guadeloupe</span>
+							<span class="block"><strong><i class="fa fa-phone"></i> Téléphone:</strong> 05 90 38 93 05</span>
+							<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:	info@comptoirnature.net">info@comptoirnature.net</a></span>
+						</p>
+
+						<h4 class="font300">Horaires</h4>
+						<p>
+							<span class="block"><strong>Lundi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
+							<span class="block"><strong>Mardi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
+							<span class="block"><strong>Mercredi:</strong> 8:00 – 12:00</span>
+                            <span class="block"><strong>Jeudi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
+							<span class="block"><strong>Vendredi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
+							<span class="block"><strong>Samedi:</strong> Fermé</span>
+                            <span class="block"><strong>Dimanche:</strong> Fermé</span>
+						</p>
+
+					</div>
+					<!-- /INFO -->
+
+				</div>
+
+			</section>
+
+		</div>
+		<!-- /WRAPPER -->
+{% endblock content %}

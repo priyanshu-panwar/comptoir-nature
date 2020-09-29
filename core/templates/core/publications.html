@@ -1,0 +1,206 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<span id="header_shadow"></span>
+		<!-- /TOP NAV -->
+
+
+		<!-- WRAPPER -->
+		<div id="wrapper">
+
+			<div id="blog">
+
+				<!-- PAGE TITLE -->
+				<header id="page-title">
+					<div class="container">
+						<h1>Publications</h1>
+
+						<ul class="breadcrumb">
+							<li><a href="{% url 'index' %}">Accueil</a></li>
+							<li class="active">Publications</li>
+						</ul>
+					</div>
+				</header>
+
+
+				<section class="container">
+
+					<form method="get" action="#" class="input-group masonry-search">
+						<input type="text" class="form-control" name="k" id="k" value="" placeholder="rechercher..." />
+						<span class="input-group-btn">
+							<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+						</span>
+					</form>
+
+					<!-- Masonry Loader -->
+					<span class="js_loader"><i class="fa fa-asterisk fa-spin"></i>CHARGEMENT EN COURS...</span>
+
+					<ul class="masonry-list">
+
+						<li class="masonry-item">
+
+							<div class="item">
+
+								<!-- article title -->
+								<div class="item-title">
+									<h2><a href="blog-single-sidebar-left.html">Bleu et Gris</a></h2>
+									<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Thème</a> 
+									<span class="label label-default light">29 juin 2020</span> 
+								</div>
+
+								<!-- image -->
+								<figure>
+                                    <a class="img-thumbnail lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
+									   <img class="img-responsive" src="{% static 'images/comptoir-nature-bleu-gris.jpg' %}" width="260" height="260" alt=""><!-- thumb -->
+								    </a>
+								</figure>
+
+								<!-- blog short preview -->
+								<p>
+									Dans le thème bleus et gris, de nombreuses collections de meubles et luminaires vous attendent dans votre boutique Comptoir Nature à Jarry
+								</p>
+
+							</div>
+
+						</li>
+                        
+                        
+                        <li class="masonry-item">
+
+							<div class="item">
+
+								<!-- article title -->
+								<div class="item-title">
+									<h2><a href="blog-single-sidebar-left.html">Jaune et Marron</a></h2>
+									<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Thème</a> 
+									<span class="label label-default light">29 juin 2020</span> 
+								</div>
+
+								<!-- image -->
+								<figure>
+									<img src="{% static 'images/comptoir-nature-ocre-bois.jpg' %}" width="260" height="260" class="img-responsive" alt="img" />
+								</figure>
+
+								<!-- blog short preview -->
+								<p>
+									Dans le thème jaune et Marron, de nombreuses collections de meubles et luminaires vous attendent dans votre boutique Comptoir Nature à Jarry
+								</p>
+
+							</div>
+
+						</li>
+                    
+                        
+                        
+                        <li class="masonry-item">
+
+							<div class="item">
+  								<!-- article title -->
+								<div class="item-title">
+									<h2><a href="blog-single-sidebar-left.html">Fête des Mères</a></h2>
+									<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Fête</a> 
+									<span class="label label-default light">12 mars 2020</span> 
+								</div>
+
+								<!-- image -->
+								<figure>
+                                    <a class="img-thumbnail lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
+									   <img class="img-responsive" src="{% static 'images/happy-mothers-day.jpg' %}" width="260" height="260" alt=""><!-- thumb -->
+								    </a>
+								</figure>
+
+								<!-- blog short preview -->
+								<p>
+									Dans les tons de jaune et marron, de nombreuses collections de meubles et luminaires vous attendent dans votre boutique Comptoir Nature à Jarry
+								</p>
+                                
+							</div>
+
+						</li>
+
+						<li class="masonry-item">
+
+							<div class="item">
+
+								<!-- article title -->
+								<div class="item-title">
+									<h2><a href="blog-single-sidebar-left.html">Pensée du Jour</a></h2>
+									<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Citation</a> 
+									<span class="label label-default light">23 février 2020</span> 
+								</div>
+
+								<!-- image -->
+								<figure>
+									<img src="{% static 'images/citation-lao-tseu.jpg' %}" width="260" height="260" class="img-responsive" alt="img" />
+								</figure>
+
+								<!-- blog short preview -->
+								<p>
+									Praesent augue arcu, ornare ut tincidunt eu, mattis a libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+								</p>
+
+							</div>
+
+						</li>
+
+						<li class="masonry-item">
+
+							<div class="item">
+
+								<!-- article title -->
+								<div class="item-title">
+									<h2><a href="blog-single-sidebar-left.html">Nouvel Arrivage</a></h2>
+									<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Nouveau</a> 
+									<span class="label label-default light">12 mars 2020</span> 
+								</div>
+
+								<!-- image -->
+								<figure>
+									<img src="{% static 'images/comptoir-tons-naturels.jpg' %}" width="260" height="260" class="img-responsive" alt="img" />
+								</figure>
+
+								<!-- blog short preview -->
+								<p>
+									Dans des tons neutres, de nombreuses collections de meubles et luminaires vous attendent dans votre boutique Comptoir Nature à Jarry
+								</p>
+
+							</div>
+
+						</li>
+
+						<li class="masonry-item">
+
+							<div class="item">
+
+								<!-- article title -->
+								<div class="item-title">
+									<h2><a href="blog-single-sidebar-left.html">Tons Bleus et Verts</a></h2>
+									<a href="blog.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Thème</a> 
+									<span class="label label-default light">12 mars 2020</span> 
+								</div>
+
+								<!-- image -->
+								<figure>
+									<img src="{% static 'images/comptoir-nature-bleu-vert.jpg' %}" width="260" height="260" class="img-responsive" alt="img" />
+								</figure>
+
+								<!-- blog short preview -->
+								<p>
+									Dans des tons de bleu et vert, de nombreuses collections de meubles et luminaires vous attendent dans votre boutique Comptoir Nature à Jarry
+								</p>
+
+							</div>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+			</div>
+		</div>
+		<!-- /WRAPPER -->
+
+
+{% endblock content %}
