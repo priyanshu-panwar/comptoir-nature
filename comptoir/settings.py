@@ -25,7 +25,7 @@ SECRET_KEY = '_7(y70#vav$yk8_up&r_o16wt8z#cou1u%(cv%7=a78$lidar2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
