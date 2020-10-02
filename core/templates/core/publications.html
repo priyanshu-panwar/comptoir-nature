@@ -55,7 +55,11 @@
 
 								<!-- image -->
 								<figure>
+									{% if p.url %}
 									<a href="{{ p.url }}"><img src="{{ p.image }}" width="260" height="260" class="img-responsive" alt="img" /></a>
+									{% else %}
+										<img src="{{ p.image }}" width="260" height="260" class="img-responsive" alt="img" />
+									{% endif %}
 								</figure>
 
 								<!-- blog short preview -->

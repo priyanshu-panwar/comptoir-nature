@@ -33,5 +33,5 @@ def contact(request):
 
 def publications(request):
 	posts = Post.objects.all()
-	posts = posts[::-1]
+	# posts = posts[::-1]
 	return render(request, 'core/publications.html', {'posts':posts,})
