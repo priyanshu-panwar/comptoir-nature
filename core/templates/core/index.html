@@ -1,6 +1,8 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
+{% block cindex %}class = "active"{% endblock cindex %}
+
 {% block content %}
 
 		<span id="header_shadow"></span>
@@ -155,99 +157,29 @@
 
 					<div class="row">
 
+						{% for c in categories %}
+
 						<div class="col-md-3"><!-- item 3 -->
 							<div class="item-box">
 								<figure>
-									<img class="img-responsive" src="{% static 'images/rtk-04.jpg' %}" width="263" height="263" alt="">
+									<img class="img-responsive" src="{{ c.image.url }}" width="263" height="263" alt="">
 								</figure>
 								<div class="item-box-desc">
-									<h4>Meubles</h4>
+									<h4>{{ c.title }}</h4>
 								</div>
 							</div>
 						</div>
 
 
-						<div class="col-md-3"><!-- item 5 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/rtk-03.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Luminaires</h4>
-								</div>
-							</div>
-						</div>
+						
 
-						<div class="col-md-3 marketing"><!-- item 7 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/rtk-02.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Art de la table</h4>
-								</div>
-							</div>
-						</div>
 
-						<div class="col-md-3"><!-- item 8 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/rtk-01.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Tissu</h4>
-
-								</div>
+						{% if forloop.counter|divisibleby:4 %}
 							</div>
-						</div>
-                        
-                        <div class="col-md-3"><!-- item 8 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/vdc-01.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Vases</h4>
+							<div class="row">
 
-								</div>
-							</div>
-						</div>
-                        
-                        						<div class="col-md-3"><!-- item 8 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/vdc-01.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Bougies</h4>
-
-								</div>
-							</div>
-						</div>
-                        
-                        <div class="col-md-3"><!-- item 8 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/vdc-01.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Conseils en décoration</h4>
-
-								</div>
-							</div>
-						</div>
-                        
-                        <div class="col-md-3"><!-- item 8 -->
-							<div class="item-box">
-								<figure>
-									<img class="img-responsive" src="{% static 'images/liste-de-mariage.jpg' %}" width="263" height="263" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Listes de mariage</h4>
-
-								</div>
-							</div>
-						</div>
+						{% endif %}
+						{% endfor %}
 
 					</div>
 
@@ -261,3 +193,14 @@
 
 
 {% endblock content %}
+
+
+{% block latestposts %}
+{% for p in lposts %}
+<div class="post-item">
+	<small>{{ p.date|date:"M d, Y" }}</small>
+	<h3><a href="blog-single-sidebar-left.html">{{ p.title }}</a></h3>
+</div>
+{% endfor %}
+
+{% endblock latestposts %}

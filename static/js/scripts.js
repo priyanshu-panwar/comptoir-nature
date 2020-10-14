@@ -106,6 +106,9 @@
 		});
 	});
  **************************************************************** **/
+
+
+
 	var _arr 	= {};
 	function loadScript(scriptName, callback) {
 
@@ -1304,7 +1307,7 @@ function _toggle() {
 	function showMap(initWhat) {
 		var script 		= document.createElement('script');
 		script.type 	= 'text/javascript';
-		script.src 		= '//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY&callback='+initWhat;
+		script.src 		= '//maps.google.com/maps/api/js?key=AIzaSyAEB066fCEdJcSpgZaOe0DAI65sVSGJvW4&callback='+initWhat;
 		document.body.appendChild(script);
 	}
 

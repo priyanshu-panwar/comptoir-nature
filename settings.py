@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'FR'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -123,14 +123,3 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media/') 
 MEDIA_URL = '/media/'
-
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = " info@vancleem.com"
-EMAIL_HOST_PASSWORD = 'RootEmail@1234'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-ADMIN_MAIL = "info@comptoirnature.net"
-
-
-SCRAPE_DATE = 20201007

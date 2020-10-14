@@ -18,7 +18,7 @@
 
 		<!-- CORE CSS -->
 		<link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-		<link href="{% static 'css/font-awesome.css" rel="stylesheet' %}" type="text/css" />
+		<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'plugins/owl-carousel/owl.carousel.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'plugins/owl-carousel/owl.theme.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'plugins/owl-carousel/owl.transitions.css' %}" rel="stylesheet" type="text/css" />
@@ -28,10 +28,24 @@
 
 		<!-- THEME CSS -->
 		<link href="{% static 'css/essentials.css' %}" rel="stylesheet" type="text/css" />
+
+		<link href="{% static 'css/blog.css' %}" rel="stylesheet" type="text/css" />
+
 		<link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'css/layout-responsive.css' %}" rel="stylesheet" type="text/css" />
 		<link href="{% static 'css/color_scheme/brown.css' %}" rel="stylesheet" type="text/css" /><!-- orange: default style -->
-		<!--<link id="css_dark_skin" href="{% static 'css/layout-dark.css' %}%" rel="stylesheet" type="text/css" />--><!-- DARK SKIN -->
+		<link id="css_dark_skin" href="{% static 'css/layout-dark.css' %}" rel="stylesheet" type="text/css" /><!-- DARK SKIN -->
+
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15445301-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15445301-6');
+</script>
+
 
 		<!-- Morenizr -->
 		<script type="text/javascript" src="{% static 'plugins/modernizr.min.js' %}"></script>
@@ -52,7 +66,7 @@
 				</button>
 
 				<!-- Logo text or image -->
-				<a class="logo scrollTo" href="#wrapper">
+				<a class="logo scrollTo" href="{% url 'index' %}">
 					<img src="{% static 'images/logo.png' %}" alt="Atropos" />
 				</a>
 
@@ -60,10 +74,10 @@
 				<div class="navbar-collapse nav-main-collapse collapse pull-right">
 					<nav class="nav-main mega-menu">
 						<ul class="nav nav-pills nav-main scroll-menu" id="topMain">
-							<li><a href="{% url 'index' %}">Home</a></li>
-							<li><a href="{% url 'publications' %}">Publications</a></li>
-							<li><a href="{% url 'faq' %}">Foire aux Questions</a></li>
-							<li><a href="{% url 'contact' %}">Contact</a></li>
+							<li {% block cindex %}{% endblock cindex %}><a href="{% url 'index' %}">Accueil</a></li>
+							<li {% block cpub %}{% endblock cpub %}><a href="{% url 'publications' %}">Publications</a></li>
+							<li {% block cfaq %}{% endblock cfaq %}><a href="{% url 'faq' %}">Foire aux Questions</a></li>
+							<li {% block ccon %}{% endblock ccon %}><a href="{% url 'contact' %}">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -71,7 +85,7 @@
 
 			</div>
 		</header>
-
+		
 
 {% block content %}
 
@@ -136,7 +150,10 @@
 						<div class="column col-md-4 text-right">
 							<h3>PUBLICATIONS RÉCENTES</h3>
 
-							<div class="post-item">
+							{% block latestposts %}
+
+							{% endblock latestposts %}
+							<!--<div class="post-item">
 								<small>29 JUIN 2020</small>
 								<h3><a href="blog-single-sidebar-left.html">THÈME : Bleu et Gris</a></h3>
 							</div>
@@ -147,7 +164,7 @@
 							<div class="post-item">
 								<small>12 MARS 2020</small>
 								<h3><a href="blog-single-sidebar-left.html">FÊTE : Fête des Mères</a></h3>
-							</div>
+							</div>-->
 
 							<a href="publications.html" class="view-more pull-right">Toutes les publications <i class="fa fa-arrow-right"></i></a>
 

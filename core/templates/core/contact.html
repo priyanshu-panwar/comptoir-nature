@@ -1,6 +1,8 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
+{% block ccon %}class = "active"{% endblock ccon %}
+
 {% block content %}
 		<span id="header_shadow"></span>
 		<!-- /TOP NAV -->
@@ -46,20 +48,21 @@
 						</div>
 						<!-- /SENT FAILED -->
 
-						<form id="contactForm" class="white-row" action="php/contact.php" method="post">
+						<form id="contactForm" class="white-row">
+							{% csrf_token %}
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-4">
 										<label>Nom complet *</label>
-										<input type="text" value="" data-msg-required="Merci de saisir votre nom." maxlength="100" class="form-control" name="contact_name" id="contact_name">
+										<input type="text" value="" data-msg-required="Merci de saisir votre nom." maxlength="100" class="form-control" name="contact-name" id="contact_name">
 									</div>
 									<div class="col-md-4">
 										<label>Adresse email *</label>
-										<input type="email" value="" data-msg-required="Merci de saisir votre adresse email." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="contact_email" id="contact_email">
+										<input type="email" value="" data-msg-required="Merci de saisir votre adresse email." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="contact-email" id="contact_email">
 									</div>
 									<div class="col-md-4">
 										<label>Téléphone</label>
-										<input type="text" value="" data-msg-required="Merci de saisir votre numéro de téléphone." data-msg-email="Please enter your phone" maxlength="100" class="form-control" name="contact_phone" id="contact_phone">
+										<input type="text" value="" data-msg-required="Merci de saisir votre numéro de téléphone." data-msg-email="Please enter your phone" maxlength="100" class="form-control" name="contact-phone" id="contact_phone">
 									</div>
 								</div>
 							</div>
@@ -67,7 +70,7 @@
 								<div class="form-group">
 									<div class="col-md-12">
 										<label>Objet</label>
-										<input type="text" value="" data-msg-required="Merci de saisir l'objet du message." maxlength="100" class="form-control" name="contact_subject" id="contact_subject">
+										<input type="text" value="" data-msg-required="Merci de saisir l'objet du message." maxlength="100" class="form-control" name="contact-subject" id="contact_subject">
 									</div>
 								</div>
 							</div>
@@ -75,18 +78,18 @@
 								<div class="form-group">
 									<div class="col-md-12">
 										<label>Message *</label>
-										<textarea maxlength="5000" data-msg-required="Merci de rédiger le contenu de votre message." rows="10" class="form-control" name="contact_message" id="contact_message"></textarea>
+										<textarea maxlength="5000" data-msg-required="Merci de rédiger le contenu de votre message." rows="10" class="form-control" name="contact-message" id="contact_message"></textarea>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
 
-									<span class="pull-right"><!-- captcha -->
+									<!--<span class="pull-right">
 										<label class="block text-right fsize12">Code anti-pourriel</label>
 										<img alt="" rel="nofollow,noindex" width="50" height="18" src="php/captcha.php?bgcolor=ffffff&amp;txtcolor=000000">
 										<input type="text" name="contact_captcha" id="contact_captcha" value="" data-msg-required="Merci de saisir l'objet du message." maxlength="6" style="width:100px; margin-left:10px;">
-									</span>
+									</span>-->
 
 									<input id="contact_submit" type="submit" value="Envoyer" class="btn btn-primary btn-lg" data-loading-text="En cours...">
 								</div>
@@ -111,13 +114,14 @@
 
 						<h4 class="font300">Horaires</h4>
 						<p>
-							<span class="block"><strong>Lundi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
+							<!--<span class="block"><strong>Lundi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
 							<span class="block"><strong>Mardi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
 							<span class="block"><strong>Mercredi:</strong> 8:00 – 12:00</span>
                             <span class="block"><strong>Jeudi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
 							<span class="block"><strong>Vendredi:</strong> 8:00 – 12:00 / 14:00 – 17:00</span>
 							<span class="block"><strong>Samedi:</strong> Fermé</span>
-                            <span class="block"><strong>Dimanche:</strong> Fermé</span>
+                            <span class="block"><strong>Dimanche:</strong> Fermé</span>-->
+                            {{ util.hours|safe }}
 						</p>
 
 					</div>
@@ -130,3 +134,14 @@
 		</div>
 		<!-- /WRAPPER -->
 {% endblock content %}
+
+
+{% block latestposts %}
+{% for p in lposts %}
+<div class="post-item">
+	<small>{{ p.date|date:"M d, Y" }}</small>
+	<h3><a href="blog-single-sidebar-left.html">{{ p.title }}</a></h3>
+</div>
+{% endfor %}
+
+{% endblock latestposts %}

@@ -1,6 +1,8 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
+{% block cfaq %}class = "active"{% endblock cfaq %}
+
 {% block content %}
 
 		<span id="header_shadow"></span>
@@ -48,7 +50,7 @@
 					</div>
 				{% endfor %}
 
-					<div class="toggle">
+					<!--<div class="toggle">
 						<label>Quels sont vos modes de paiement?</label>
 						<div class="toggle-content">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <a data-toggle="tooltip" data-original-title="Default tooltip" href="#">pellentesque neque eget</a> diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. <a href="#" data-container="body" data-toggle="popover" data-placement="top" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" title="A Title">Popover on top</a></p>
@@ -133,7 +135,7 @@
 								<li>Maecenas sed diam eget</li>
 							</ul>
 						</div>
-					</div>
+					</div>-->
 				</div>
 
 				<!-- CALLOUT -->
@@ -161,3 +163,13 @@
 		<!-- /WRAPPER -->
 
 {% endblock content %}
+
+{% block latestposts %}
+{% for p in lposts %}
+<div class="post-item">
+	<small>{{ p.date|date:"M d, Y" }}</small>
+	<h3><a href="blog-single-sidebar-left.html">{{ p.title }}</a></h3>
+</div>
+{% endfor %}
+
+{% endblock latestposts %}

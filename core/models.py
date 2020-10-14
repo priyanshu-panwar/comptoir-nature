@@ -1,5 +1,6 @@
 from django.db import models
 from PIL import Image
+from django.utils import timezone
 
 class Question(models.Model):
     question = models.CharField(max_length=300)
@@ -14,12 +15,50 @@ class Question(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100, null=True, blank=True)
-    text = models.CharField(max_length=300, null=True, blank=True)
-    image = models.URLField(unique=True, null=True, blank=True)
+    text = models.TextField(null=True, blank=True)
+    image = models.URLField(max_length=500, unique=True, null=True, blank=True)
     url = models.URLField(null=True, blank=True)
     tag = models.CharField(max_length=100, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "Publications"
 
     def __str__(self):
         return self.text
 
+class Category(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='category/')
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.title
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    telephone = models.CharField(max_length=15)
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    date = models.DateField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Contacts"
+        ordering = ['-date',]
+
+    def __str__(self):
+        return self.email
+
+
+class Utility(models.Model):
+	hours = models.TextField()
+
+	class Meta:
+		verbose_name_plural = "Utilities"
+
+	def __str__(self):
+		return f"Default"
