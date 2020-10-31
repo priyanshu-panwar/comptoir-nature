@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Question
 from facebook_scraper import get_posts
-from .models import Post, Category, Contact, Utility
+from .models import Post, Category, Contact, Utility, Text
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 from comptoir.settings import EMAIL_HOST_USER, ADMIN_MAIL, SCRAPE_DATE
@@ -12,10 +12,20 @@ from django.conf import settings
 def extract_images(idx):
 	print("extracting.........\n.......\n......\n")
 	for post in get_posts('comptoirnaturejarry', pages=idx):
-		if post['text'] and post['image'] and post['url']:
+		print(post['text'])
+		print(post['image'])
+		print(post['post_url'])
+		if post['image'] and post['text']:
 			p = Post()
 			p.image = post['image'][0]
 			p.text = post['text']
+			string = post['text']
+			res = ""
+			start = string.find("***") + len("***")
+			end = string.rfind("***")
+			substring = string[start:end]
+			print(substring)
+			p.title = substring
 			p.url = post['post_url']
 			# p.date = post['date']
 			p.save()
@@ -46,9 +56,10 @@ def publications(request):
 
 	key = year*10000 + month*100 + day
 	print(key)
+	print(settings.SCRAPE_DATE)
 
 	if key != settings.SCRAPE_DATE :
-		extract_images(1)
+		extract_images(2)
 		settings.SCRAPE_DATE = key
 	print(settings.SCRAPE_DATE)
 
@@ -72,6 +83,8 @@ def publications(request):
 
 
 def index(request):
+	text = Text.objects.all()
+	text = text[0]
 	posts = Post.objects.all()
 	posts = posts[::-1]
 	lposts = posts[:3]
@@ -80,6 +93,7 @@ def index(request):
 	context = {
 		'categories' : categories,
 		'lposts' : lposts,
+		'text' : text,
 	}
 	return render(request, 'core/index.html', context)
     # return render(request, 'core/index.html', context)
@@ -89,6 +103,8 @@ def is_valid_queryparam(param):
 
 
 def contact(request):
+	text = Text.objects.all()
+	text = text[0]
 	posts = Post.objects.all()
 	posts = posts[::-1]
 	lposts = posts[:3]
@@ -126,4 +142,4 @@ def contact(request):
 		)
 		return render(request, 'core/thankyou.html')
 
-	return render(request, 'core/contact.html', {'util' : util, 'lposts' : lposts,})
+	return render(request, 'core/contact.html', {'util' : util, 'lposts' : lposts, 'text' : text, })

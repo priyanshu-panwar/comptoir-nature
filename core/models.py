@@ -2,6 +2,18 @@ from django.db import models
 from PIL import Image
 from django.utils import timezone
 
+class Text(models.Model):
+    latitude = models.CharField(max_length=100)
+    longitude = models.CharField(max_length=100)
+    Section_1 = models.TextField()
+    Section_2 = models.TextField()
+    Section_3 = models.TextField()
+    Section_4 = models.TextField()
+    Section_5 = models.TextField()
+
+    def __str__(self):
+        return "DEFAULT"
+
 class Question(models.Model):
     question = models.CharField(max_length=300)
     answer = models.TextField()
