@@ -15,7 +15,7 @@ def extract_images(idx):
 		print(post['text'])
 		print(post['image'])
 		print(post['post_url'])
-		if post['image'] and post['text']:
+		if post['image'] and post['text'] and len(post['image']) > 25:
 			p = Post()
 			p.image = post['image'][0]
 			p.text = post['text']
