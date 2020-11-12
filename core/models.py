@@ -28,7 +28,7 @@ class Question(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100, null=True, blank=True)
     text = models.TextField(null=True, blank=True)
-    image = models.URLField(max_length=500, unique=True, null=True, blank=True)
+    image = models.URLField(max_length=500, null=True, blank=True)
     url = models.URLField(null=True, blank=True)
     tag = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateTimeField(default=timezone.now, null=True, blank=True)

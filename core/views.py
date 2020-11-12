@@ -8,6 +8,60 @@ from comptoir.settings import EMAIL_HOST_USER, ADMIN_MAIL, SCRAPE_DATE
 from datetime import date
 from django.conf import settings
 
+import requests
+from bs4 import BeautifulSoup
+from json import loads
+
+def extract_insta():
+	URL = 'https://www.instagram.com/deco_comptoirnature/'
+	page = requests.get(URL)
+
+	soup = BeautifulSoup(page.content, 'html.parser')
+	scripts = soup.find_all('script')
+	data_script = scripts[4]
+
+	content = data_script.contents[0]
+	data_object = content[content.find('{"config"'):-1]
+	data_json = data_object.json()
+	# data_json = loads(data_object)
+	need = data_json['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges']
+	for i in range(22):
+		print(f"Post {i}\n")
+		try:
+			if (len(need) > 0 and len(need[i]) > 0):
+				hell = need[i]['node']
+			else:
+				continue
+			print("Image = " , hell['display_url'])
+			if (len(hell['edge_media_to_caption']['edges'])):
+				print("Text = " , hell['edge_media_to_caption']['edges'][0]['node']['text'])
+			else:
+				print("No caption")
+			print("\n\n")
+			image = hell['display_url']
+			text = "comptoirNature"
+			if (len(hell['edge_media_to_caption']['edges'])):
+				text = hell['edge_media_to_caption']['edges'][0]['node']['text']
+			fun = False
+			for x in Post.objects.all():
+				if (x.image == image):
+					fun = True
+					break
+			if fun:
+				continue
+			p = Post()
+			p.image = image
+			p.text = text
+			string = text
+			res = ""
+			start = string.find("***") + len("***")
+			end = string.rfind("***")
+			substring = string[start:end]
+			print(substring)
+			p.title = substring
+			p.save()
+		except:
+			continue		
 
 def extract_images(idx):
 	print("extracting.........\n.......\n......\n")
@@ -59,7 +113,7 @@ def publications(request):
 	print(settings.SCRAPE_DATE)
 
 	if key != settings.SCRAPE_DATE :
-		extract_images(2)
+		extract_insta()
 		settings.SCRAPE_DATE = key
 	print(settings.SCRAPE_DATE)
 
